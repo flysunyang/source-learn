@@ -1,4 +1,4 @@
-package com.sunshine.winter.beans;
+package com.sunshine.winter.beans.factory.beans;
 
 public class BeansException extends RuntimeException {
 
@@ -9,4 +9,5 @@ public class BeansException extends RuntimeException {
     public BeansException(String message, Throwable cause) {
         super(message, cause);
     }
+    
 }

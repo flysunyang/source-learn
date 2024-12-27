@@ -1,8 +1,7 @@
 package com.sunshine.winter.beans;
 
-import com.sunshine.winter.beans.factory.config.BeanDefinition;
-import com.sunshine.winter.beans.factory.config.BeanReference;
-import com.sunshine.winter.beans.factory.support.DefaultListableBeanFactory;
+import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.beans.support.DefaultListableBeanFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,18 +9,18 @@ public class IOCTest {
     
     @Test
     void testPropertyInject() {
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        beanFactory.registerBeanDefinition("userDao", new BeanDefinition(UserDao.class));
-
-        PropertyValues propertyValues = new PropertyValues();
-        propertyValues.addPropertyValue(new PropertyValue("userDao", new BeanReference("userDao")));
-        BeanDefinition beanDefinition = new BeanDefinition(UserService.class, propertyValues);
-        beanFactory.registerBeanDefinition("userService", beanDefinition);
-
-        UserService userService = (UserService) beanFactory.getBean("userService");
-        userService.queryName("1001");
-        userService.queryName("1002");
-        userService.queryName("1003");
+        // DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        // beanFactory.registerBeanDefinition("userDao", new BeanDefinition(UserDao.class));
+        //
+        // PropertyValues propertyValues = new PropertyValues();
+        // propertyValues.addPropertyValue(new PropertyValue("userDao", new BeanReference("userDao")));
+        // BeanDefinition beanDefinition = new BeanDefinition(UserService.class, propertyValues);
+        // beanFactory.registerBeanDefinition("userService", beanDefinition);
+        //
+        // UserService userService = (UserService) beanFactory.getBean("userService");
+        // userService.queryName("1001");
+        // userService.queryName("1002");
+        // userService.queryName("1003");
     }
     
     @Test

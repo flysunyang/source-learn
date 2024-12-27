@@ -1,6 +1,6 @@
-package com.sunshine.winter.beans.factory.support;
+package com.sunshine.winter.beans.factory.beans.support;
 
-import com.sunshine.winter.beans.factory.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
 
 public interface BeanDefinitionRegistry {
     
