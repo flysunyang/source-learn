@@ -1,6 +1,7 @@
-package com.sunshine.winter.beans.factory.beans.config;
+package com.sunshine.winter.beans.factory.config;
 
-import com.sunshine.winter.beans.factory.beans.BeansException;
+
+import com.sunshine.winter.beans.factory.BeansException;
 
 public interface BeanFactory {
     

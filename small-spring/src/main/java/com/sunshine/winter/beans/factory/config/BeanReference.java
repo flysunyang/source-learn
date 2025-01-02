@@ -1,4 +1,4 @@
-package com.sunshine.winter.beans.factory.beans.config;
+package com.sunshine.winter.beans.factory.config;
 
 public class BeanReference {
     

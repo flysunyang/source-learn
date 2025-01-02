@@ -1,8 +1,8 @@
-package com.sunshine.winter.beans.factory.beans.support;
+package com.sunshine.winter.beans.factory.support;
 
-import com.sunshine.winter.beans.factory.beans.BeansException;
-import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
-import com.sunshine.winter.beans.factory.beans.config.BeanFactory;
+import com.sunshine.winter.beans.factory.BeansException;
+import com.sunshine.winter.beans.factory.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.config.BeanFactory;
 
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
 

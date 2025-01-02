@@ -1,6 +1,6 @@
-package com.sunshine.winter.beans.factory.beans.support;
+package com.sunshine.winter.beans.factory.support;
 
-import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.config.BeanDefinition;
 
 import java.lang.reflect.Constructor;
 

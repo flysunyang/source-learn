@@ -1,11 +1,11 @@
-package com.sunshine.winter.beans.factory.beans.support;
+package com.sunshine.winter.beans.factory.support;
 
 import cn.hutool.core.util.ReflectUtil;
-import com.sunshine.winter.beans.factory.beans.BeansException;
-import com.sunshine.winter.beans.factory.beans.PropertyValue;
-import com.sunshine.winter.beans.factory.beans.PropertyValues;
-import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
-import com.sunshine.winter.beans.factory.beans.config.BeanReference;
+import com.sunshine.winter.beans.factory.BeansException;
+import com.sunshine.winter.beans.factory.PropertyValue;
+import com.sunshine.winter.beans.factory.PropertyValues;
+import com.sunshine.winter.beans.factory.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.config.BeanReference;
 
 import java.lang.reflect.Constructor;
 

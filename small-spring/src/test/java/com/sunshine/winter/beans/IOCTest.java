@@ -1,10 +1,10 @@
 package com.sunshine.winter.beans;
 
-import com.sunshine.winter.beans.factory.beans.PropertyValue;
-import com.sunshine.winter.beans.factory.beans.PropertyValues;
-import com.sunshine.winter.beans.factory.beans.config.BeanDefinition;
-import com.sunshine.winter.beans.factory.beans.config.BeanReference;
-import com.sunshine.winter.beans.factory.beans.support.DefaultListableBeanFactory;
+import com.sunshine.winter.beans.factory.PropertyValue;
+import com.sunshine.winter.beans.factory.PropertyValues;
+import com.sunshine.winter.beans.factory.config.BeanDefinition;
+import com.sunshine.winter.beans.factory.config.BeanReference;
+import com.sunshine.winter.beans.factory.support.DefaultListableBeanFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

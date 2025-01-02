@@ -1,4 +1,4 @@
-package com.sunshine.winter.beans.factory.beans;
+package com.sunshine.winter.beans.factory;
 
 public class PropertyValue {
     

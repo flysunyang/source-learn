@@ -1,4 +1,6 @@
-package com.sunshine.winter.beans.factory.beans.support;
+package com.sunshine.winter.beans.factory.support;
+
+import com.sunshine.winter.beans.factory.config.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;

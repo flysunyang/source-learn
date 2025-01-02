@@ -1,4 +1,4 @@
-package com.sunshine.winter.beans.factory.beans;
+package com.sunshine.winter.beans.factory;
 
 import java.util.ArrayList;
 import java.util.List;

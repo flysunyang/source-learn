@@ -1,4 +1,4 @@
-package com.sunshine.winter.beans.factory.beans.support;
+package com.sunshine.winter.beans.factory.config;
 
 public interface SingletonBeanRegistry {
     
