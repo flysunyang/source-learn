@@ -1,0 +1,7 @@
+<beans>
+    <bean id="userDao" class="com.sunshine.winter.beans.UserDao"/>
+    <bean id="userService" class="com.sunshine.winter.beans.UserService">
+        <property name="age" value="18"/>
+        <property name="userDao" ref="userDao"/>
+    </bean>
+</beans>
