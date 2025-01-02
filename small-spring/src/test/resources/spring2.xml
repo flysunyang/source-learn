@@ -7,4 +7,7 @@
         <property name="location" value="ShenZheng"/>
         <property name="userDao" ref="userDao"/>
     </bean>
+    
+    <bean class="com.sunshine.winter.common.MyBeanFactoryPostProcessor"/>
+    <bean class="com.sunshine.winter.common.MyBeanPostProcessor"/>
 </beans>
