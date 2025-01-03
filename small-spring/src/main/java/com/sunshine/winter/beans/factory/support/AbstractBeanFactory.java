@@ -4,6 +4,7 @@ import com.sunshine.winter.beans.factory.BeansException;
 import com.sunshine.winter.beans.factory.config.BeanDefinition;
 import com.sunshine.winter.beans.factory.config.BeanPostProcessor;
 import com.sunshine.winter.beans.factory.config.ConfigurableBeanFactory;
+import com.sunshine.winter.util.ClassUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
     
     private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
+    
+    private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
 
     @Override
     public Object getBean(String beanName) throws BeansException {
@@ -48,5 +51,9 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     public List<BeanPostProcessor> getBeanPostProcessors() {
         return beanPostProcessors;
+    }
+    
+    public ClassLoader getBeanClassLoader() {
+        return beanClassLoader;
     }
 }

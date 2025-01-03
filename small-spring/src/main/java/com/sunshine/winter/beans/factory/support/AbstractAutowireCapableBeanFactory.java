@@ -2,6 +2,10 @@ package com.sunshine.winter.beans.factory.support;
 
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.sunshine.winter.beans.factory.Aware;
+import com.sunshine.winter.beans.factory.BeanClassLoaderAware;
+import com.sunshine.winter.beans.factory.BeanFactoryAware;
+import com.sunshine.winter.beans.factory.BeanNameAware;
 import com.sunshine.winter.beans.factory.BeansException;
 import com.sunshine.winter.beans.factory.DisposableBean;
 import com.sunshine.winter.beans.factory.InitializingBean;
@@ -43,6 +47,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     }
 
     private Object initializeBean(String beanName, Object bean, BeanDefinition beanDefinition) {
+        if (bean instanceof Aware) {
+            if (bean instanceof BeanFactoryAware) {
+                ((BeanFactoryAware) bean).setBeanFactory(this);
+            }
+            if (bean instanceof BeanClassLoaderAware) {
+                ((BeanClassLoaderAware) bean).setBeanClassLoader(getBeanClassLoader());
+            }
+            if (bean instanceof BeanNameAware) {
+                ((BeanNameAware) bean).setBeanName(beanName);
+            }
+        }
         Object wrappedBean = applyBeanPostProcessorsBeforeInitialization(bean, beanName);
         try {
             invokeInitMethods(beanName, wrappedBean, beanDefinition);
