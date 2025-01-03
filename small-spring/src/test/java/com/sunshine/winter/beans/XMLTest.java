@@ -11,6 +11,14 @@ import org.junit.jupiter.api.Test;
 public class XMLTest {
     
     @Test
+    void testInitAndDestroyMethod() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring2.xml");
+        context.registerShutdownHook();
+        UserService userService = context.getBean("userService", UserService.class);
+        System.out.println(userService.queryUserInfo());
+    }
+    
+    @Test
     void testXML() {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);

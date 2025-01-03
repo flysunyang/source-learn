@@ -1,6 +1,9 @@
 package com.sunshine.winter.beans;
 
-public class UserService {
+import com.sunshine.winter.beans.factory.DisposableBean;
+import com.sunshine.winter.beans.factory.InitializingBean;
+
+public class UserService implements InitializingBean, DisposableBean {
 
     private UserDao userDao;
 
@@ -49,5 +52,15 @@ public class UserService {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("execute userService.destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("execute userService.afterPropertiesSet");
     }
 }
