@@ -5,10 +5,27 @@ import com.sunshine.winter.beans.factory.PropertyValues;
 import com.sunshine.winter.beans.factory.config.BeanDefinition;
 import com.sunshine.winter.beans.factory.config.BeanReference;
 import com.sunshine.winter.beans.factory.support.DefaultListableBeanFactory;
+import com.sunshine.winter.context.support.ClassPathXmlApplicationContext;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openjdk.jol.info.ClassLayout;
 
 public class IOCTest {
+    
+    @Test
+    void testPrototype() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring3.xml");
+        context.registerShutdownHook();
+
+        MyUserService userService01 = context.getBean("userService", MyUserService.class);
+        MyUserService userService02 = context.getBean("userService", MyUserService.class);
+
+        System.out.println(userService01);
+        System.out.println(userService02);
+
+        System.out.println(userService01 + " 十六进制哈希：" + Integer.toHexString(userService01.hashCode()));
+        System.out.println(ClassLayout.parseInstance(userService01).toPrintable());
+    }
 
     @Test
     void testPropertyInject() {

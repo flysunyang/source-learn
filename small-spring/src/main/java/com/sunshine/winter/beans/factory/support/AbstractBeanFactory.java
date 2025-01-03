@@ -1,6 +1,7 @@
 package com.sunshine.winter.beans.factory.support;
 
 import com.sunshine.winter.beans.factory.BeansException;
+import com.sunshine.winter.beans.factory.FactoryBean;
 import com.sunshine.winter.beans.factory.config.BeanDefinition;
 import com.sunshine.winter.beans.factory.config.BeanPostProcessor;
 import com.sunshine.winter.beans.factory.config.ConfigurableBeanFactory;
@@ -9,7 +10,7 @@ import com.sunshine.winter.util.ClassUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
+public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport implements ConfigurableBeanFactory {
     
     private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
     
@@ -31,12 +32,24 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     }
 
     private Object doGetBean(String beanName, Object... args) {
-        Object singleton = getSingletonBean(beanName);
-        if (singleton != null) {
-            return singleton;
+        Object sharedInstance = getSingletonBean(beanName);
+        if (sharedInstance != null) {
+            return getObjectForBeanInstance(sharedInstance, beanName);
         }
         BeanDefinition beanDefinition = getBeanDefinition(beanName);
-        return createBean(beanName, beanDefinition, args);
+        Object bean = createBean(beanName, beanDefinition, args);
+        return getObjectForBeanInstance(bean, beanName);
+    }
+
+    private Object getObjectForBeanInstance(Object beanInstance, String beanName) {
+        if (!(beanInstance instanceof FactoryBean)) {
+            return beanInstance;
+        }
+        Object object = getCacheObjectForFactoryBean(beanName);
+        if (object == null) {
+            object = getObjectFromFactoryBean((FactoryBean<?>) beanInstance, beanName);
+        }
+        return object;
     }
 
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object... args);
